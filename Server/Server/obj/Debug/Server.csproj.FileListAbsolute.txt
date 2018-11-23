@@ -1,0 +1,6 @@
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\bin\Debug\Server.exe.config
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\bin\Debug\Server.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\bin\Debug\Server.pdb
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\obj\Debug\Server.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Server\Server\obj\Debug\Server.pdb

@@ -1,0 +1,9 @@
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\bin\Debug\Sort.exe.config
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\bin\Debug\Sort.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\bin\Debug\Sort.pdb
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.csprojResolveAssemblyReference.cache
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.Form1.resources
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.Properties.Resources.resources
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.csproj.GenerateResource.Cache
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Sort\Sort\obj\Debug\Sort.pdb
