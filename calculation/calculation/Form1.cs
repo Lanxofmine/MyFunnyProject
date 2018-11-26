@@ -13,8 +13,6 @@ namespace calculation
     public partial class Form1 : Form
     {
         static Stack<string> totalExp = new Stack<string>();
-        static Stack<string> UtotalExp = new Stack<string>();
-        string FinalExp;
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +42,7 @@ namespace calculation
         }
         string GetExp()
         {
-            FinalExp = "";
+            string FinalExp = "";
             int count = totalExp.Count;
             string[] b = totalExp.ToArray();
             for (int i=count-1;i>-1;i--)
