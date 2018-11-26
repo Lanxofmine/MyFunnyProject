@@ -1,0 +1,9 @@
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\bin\Debug\Matrix.exe.config
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\bin\Debug\Matrix.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\bin\Debug\Matrix.pdb
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.csprojResolveAssemblyReference.cache
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.Form1.resources
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.Properties.Resources.resources
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.csproj.GenerateResource.Cache
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.exe
+d:\users\administrator\documents\visual studio 2017\Projects\Matrix\Matrix\obj\Debug\Matrix.pdb
