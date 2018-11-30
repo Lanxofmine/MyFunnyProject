@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,13 @@ namespace DrawApp
         static Color color;
         public Form1()
         {
-
             InitializeComponent();
-            
+            toolStripComboBox1.SelectedIndexChanged += new EventHandler(SelectItem);
         }
-        
+        private void SelectItem(object sender,EventArgs e)
+        {
+            points.Clear();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             toolStripComboBox1.SelectedIndex = 0;
@@ -43,6 +46,11 @@ namespace DrawApp
         }
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            if (!singleZ)
+            {
+                points.Clear();
+                singleZ = true;
+            }
             points.Add(e.Location);
             Pen pen = new Pen(color);
             switch (toolStripComboBox1.SelectedItem.ToString().Trim())
@@ -50,13 +58,16 @@ namespace DrawApp
                 case "直线":
                     if (single)
                     {
-                        points.Clear();
                         singleZ = true;
                         single = false;
                     }
                     else
+                    {
+                        if (points.Count > 1)
+                            points.Clear();
+                        points.Add(e.Location);
                         single = true;
-                    
+                    }
                     break;
                 case "折线":
                     single = true;
@@ -64,12 +75,16 @@ namespace DrawApp
                 case "圆":
                     if (single)
                     {
-                        points.Clear();
                         singleZ = true;
                         single = false;
                     }
                     else
+                    {
+                        if (points.Count > 1)
+                            points.Clear();
+                        points.Add(e.Location);
                         single = true;
+                    }
                     break;
                 default:
                     single = true;
@@ -113,28 +128,22 @@ namespace DrawApp
                     }
                     break;
             }
-            
-           
         }
 
         private void 撤销ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void 选色ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void ToolStripComboBox1_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            points.Clear();
             singleZ = false;
             single = false;
         }
@@ -170,6 +179,80 @@ namespace DrawApp
                     if (points.Count > 1)
                         gca.DrawPolygon(pen, points.ToArray());
                     break;
+            }
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs points)
+        {
+            string file = null;
+            string Type = null;
+            OpenFileDialog fileDialog = new OpenFileDialog()
+            {
+                InitialDirectory=@"D:\",
+                FilterIndex=2,
+                Title = "请选择文件",
+                Filter = "文本文件|*.txt"
+            };
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                file = fileDialog.FileName;
+                string[] data = File.ReadAllLines(file, Encoding.UTF8);
+                Form1.points.Clear();
+                Type = data[0];
+                List<string> Dat = data.ToList<string>();
+                Dat.RemoveAt(0);
+                foreach (string item in Dat)
+                {
+                    string[] point = item.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    try
+                    {
+                        Form1.points.Add(new Point(int.Parse(point[0]), int.Parse(point[1])));
+                    }
+                    catch { }
+                }
+            }
+            Pen pen = new Pen(color);
+            gca.Clear(panel1.BackColor);
+            switch (Type)
+            {
+                case "圆":
+                    float dis = (float)Math.Sqrt((Form1.points[0].X - Form1.points[Form1.points.Count - 1].X) * (Form1.points[0].X - Form1.points[Form1.points.Count - 1].X)
+                        + (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y) * (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y));
+                    gca.DrawEllipse(pen, Form1.points[0].X - dis, Form1.points[0].Y - dis, 2 * dis, 2 * dis);
+                    break;
+                case "多边形":
+                    gca.DrawPolygon(pen,Form1.points.ToArray());
+                    gca.FillPolygon(new SolidBrush(color), Form1.points.ToArray());
+                    break;
+                default:
+                    gca.DrawLines(pen,Form1. points.ToArray());
+                    break;
+            }
+        }
+
+        private void SaveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Title="另存为",
+                Filter = "文本文件|*.txt"
+            };
+            if (points.Count == 0)
+            {
+                MessageBox.Show("无数据可保存");
+                return;
+            }
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string msg = toolStripComboBox1.SelectedItem.ToString()+"\r\n";
+                foreach (Point item in points)
+                {
+                    msg += item.X.ToString() + "," + item.Y.ToString() + "\r\n";
+                }
+                using (StreamWriter sw=new StreamWriter(saveFileDialog.FileName))
+                {
+                    sw.WriteLineAsync(msg);
+                }
             }
         }
     }
