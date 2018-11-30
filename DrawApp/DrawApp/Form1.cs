@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DrawApp
@@ -26,7 +23,7 @@ namespace DrawApp
         }
         private void SelectItem(object sender,EventArgs e)
         {
-            points.Clear();
+            singleZ = false;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -64,8 +61,10 @@ namespace DrawApp
                     else
                     {
                         if (points.Count > 1)
+                        {
                             points.Clear();
-                        points.Add(e.Location);
+                            points.Add(e.Location);
+                        }
                         single = true;
                     }
                     break;
@@ -81,8 +80,10 @@ namespace DrawApp
                     else
                     {
                         if (points.Count > 1)
+                        {
                             points.Clear();
-                        points.Add(e.Location);
+                            points.Add(e.Location);
+                        }
                         single = true;
                     }
                     break;
@@ -188,7 +189,7 @@ namespace DrawApp
             string Type = null;
             OpenFileDialog fileDialog = new OpenFileDialog()
             {
-                InitialDirectory=@"D:\",
+                InitialDirectory=@"",
                 FilterIndex=2,
                 Title = "请选择文件",
                 Filter = "文本文件|*.txt"
@@ -210,23 +211,23 @@ namespace DrawApp
                     }
                     catch { }
                 }
-            }
-            Pen pen = new Pen(color);
-            gca.Clear(panel1.BackColor);
-            switch (Type)
-            {
-                case "圆":
-                    float dis = (float)Math.Sqrt((Form1.points[0].X - Form1.points[Form1.points.Count - 1].X) * (Form1.points[0].X - Form1.points[Form1.points.Count - 1].X)
-                        + (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y) * (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y));
-                    gca.DrawEllipse(pen, Form1.points[0].X - dis, Form1.points[0].Y - dis, 2 * dis, 2 * dis);
-                    break;
-                case "多边形":
-                    gca.DrawPolygon(pen,Form1.points.ToArray());
-                    gca.FillPolygon(new SolidBrush(color), Form1.points.ToArray());
-                    break;
-                default:
-                    gca.DrawLines(pen,Form1. points.ToArray());
-                    break;
+                Pen pen = new Pen(color);
+                gca.Clear(panel1.BackColor);
+                switch (Type)
+                {
+                    case "圆":
+                        float dis = (float)Math.Sqrt((Form1.points[0].X - Form1.points[Form1.points.Count - 1].X) * (Form1.points[0].X - Form1.points[Form1.points.Count - 1].X)
+                            + (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y) * (Form1.points[0].Y - Form1.points[Form1.points.Count - 1].Y));
+                        gca.DrawEllipse(pen, Form1.points[0].X - dis, Form1.points[0].Y - dis, 2 * dis, 2 * dis);
+                        break;
+                    case "多边形":
+                        gca.DrawPolygon(pen, Form1.points.ToArray());
+                        gca.FillPolygon(new SolidBrush(color), Form1.points.ToArray());
+                        break;
+                    default:
+                        gca.DrawLines(pen, Form1.points.ToArray());
+                        break;
+                }
             }
         }
 
