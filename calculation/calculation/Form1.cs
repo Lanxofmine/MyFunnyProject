@@ -37,6 +37,7 @@ namespace calculation
             totalExp.Pop();
             GetExp();
         }
+
         string GetExp()
         {
             string FinalExp = "";
