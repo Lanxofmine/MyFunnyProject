@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Matrix
@@ -67,7 +60,8 @@ namespace Matrix
             {
                 for (int j = 0; j < dataGridView1.Rows[i].Cells.Count; j++)
                 {
-                    dataGridView3.Rows[i].Cells[j].Value = int.Parse(dataGridView1.Rows[i].Cells[j].Value.ToString().Trim()) + int.Parse(dataGridView2.Rows[i].Cells[j].Value.ToString().Trim());
+                    dataGridView3.Rows[i].Cells[j].Value = int.Parse(dataGridView1.Rows[i].Cells[j].Value.ToString().Trim()) 
+                        + int.Parse(dataGridView2.Rows[i].Cells[j].Value.ToString().Trim());
                 }
             }
         }
@@ -77,7 +71,8 @@ namespace Matrix
             {
                 for (int j = 0; j < dataGridView1.Rows[i].Cells.Count; j++)
                 {
-                    dataGridView3.Rows[i].Cells[j].Value = int.Parse(dataGridView1.Rows[i].Cells[j].Value.ToString().Trim()) - int.Parse(dataGridView2.Rows[i].Cells[j].Value.ToString().Trim());
+                    dataGridView3.Rows[i].Cells[j].Value = int.Parse(dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        - int.Parse(dataGridView2.Rows[i].Cells[j].Value.ToString().Trim());
                 }
             }
         }
@@ -88,7 +83,8 @@ namespace Matrix
                 {
                     int a = 0;
                     for (int k = 0; k < dataGridView1.Rows[i].Cells.Count; k++)
-                      a+= int.Parse(dataGridView1.Rows[i].Cells[k].Value.ToString().Trim()) * int.Parse(dataGridView2.Rows[k].Cells[j].Value.ToString().Trim());
+                      a+= int.Parse(dataGridView1.Rows[i].Cells[k].Value.ToString().Trim())
+                            * int.Parse(dataGridView2.Rows[k].Cells[j].Value.ToString().Trim());
                     dataGridView3.Rows[i].Cells[j].Value = a;
                 }
         }
