@@ -50,6 +50,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,27 +183,27 @@
             // 
             // btnDiv
             // 
-            this.btnDiv.Location = new System.Drawing.Point(162, 156);
+            this.btnDiv.Location = new System.Drawing.Point(194, 156);
             this.btnDiv.Name = "btnDiv";
-            this.btnDiv.Size = new System.Drawing.Size(77, 44);
+            this.btnDiv.Size = new System.Drawing.Size(45, 44);
             this.btnDiv.TabIndex = 14;
             this.btnDiv.Text = "/";
             this.btnDiv.UseVisualStyleBackColor = true;
             // 
             // btnLeft
             // 
-            this.btnLeft.Location = new System.Drawing.Point(58, 156);
+            this.btnLeft.Location = new System.Drawing.Point(110, 156);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(46, 44);
+            this.btnLeft.Size = new System.Drawing.Size(37, 44);
             this.btnLeft.TabIndex = 15;
             this.btnLeft.Text = "(";
             this.btnLeft.UseVisualStyleBackColor = true;
             // 
             // btnRight
             // 
-            this.btnRight.Location = new System.Drawing.Point(110, 156);
+            this.btnRight.Location = new System.Drawing.Point(153, 156);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(46, 44);
+            this.btnRight.Size = new System.Drawing.Size(35, 44);
             this.btnRight.TabIndex = 16;
             this.btnRight.Text = ")";
             this.btnRight.UseVisualStyleBackColor = true;
@@ -229,6 +230,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnDet);
             this.panel1.Controls.Add(this.btnMul);
@@ -269,6 +271,15 @@
             this.textBox2.Size = new System.Drawing.Size(246, 34);
             this.textBox2.TabIndex = 21;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(58, 156);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(46, 44);
+            this.button14.TabIndex = 17;
+            this.button14.Text = ".";
+            this.button14.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -314,6 +325,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button14;
     }
 }
 
