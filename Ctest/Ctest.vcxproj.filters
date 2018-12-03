@@ -14,4 +14,62 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pb_common.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pb_decode.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pb_encode.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Attributes.pb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Messages.pb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MessagesDescriptor.pb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="writes.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="reads.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pb_common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pb_decode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pb_encode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Attributes.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Messages.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MessagesDescriptor.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="writes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reads.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
