@@ -14,7 +14,6 @@ namespace DrawApp
         static bool single=false;
         static bool singleZ = false;
         static Graphics gca;
-        static Graphics g;
         static Color color;
         public Form1()
         {
@@ -30,7 +29,6 @@ namespace DrawApp
             toolStripComboBox1.SelectedIndex = 0;
             color= Color.FromKnownColor(KnownColor.Black);
             gca = panel1.CreateGraphics();
-            g = panel1.CreateGraphics();
         }
 
         private void 选色ToolStripMenuItem_Click_1(object sender,EventArgs e)
@@ -189,7 +187,6 @@ namespace DrawApp
             string Type = null;
             OpenFileDialog fileDialog = new OpenFileDialog()
             {
-                InitialDirectory=@"",
                 FilterIndex=2,
                 Title = "请选择文件",
                 Filter = "文本文件|*.txt"
