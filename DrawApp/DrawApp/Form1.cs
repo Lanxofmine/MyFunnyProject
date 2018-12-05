@@ -51,6 +51,7 @@ namespace DrawApp
             switch (toolStripComboBox1.SelectedItem.ToString().Trim())
             {
                 case "直线":
+                case "圆":
                     if (single)
                     {
                         singleZ = true;
@@ -69,22 +70,6 @@ namespace DrawApp
                 case "折线":
                     single = true;
                     break;
-                case "圆":
-                    if (single)
-                    {
-                        singleZ = true;
-                        single = false;
-                    }
-                    else
-                    {
-                        if (points.Count > 1)
-                        {
-                            points.Clear();
-                            points.Add(e.Location);
-                        }
-                        single = true;
-                    }
-                    break;
                 default:
                     single = true;
                     break;
@@ -100,7 +85,7 @@ namespace DrawApp
                     if (single)
                     {
                         gca.Clear(panel1.BackColor);
-                        float dis = (float)Math.Sqrt((e.Location.X-points[points.Count-1].X)* (e.Location.X - points[points.Count - 1].X) 
+                        float dis = (float)Math.Sqrt((e.Location.X-points[points.Count-1].X)* (e.Location.X - points[points.Count - 1].X)
                             + (e.Location.Y - points[points.Count - 1].Y)* (e.Location.Y - points[points.Count - 1].Y));
                         gca.DrawEllipse(pen,points[points.Count-1].X-dis, points[points.Count - 1].Y - dis,2*dis,2*dis);
                     }
@@ -127,18 +112,6 @@ namespace DrawApp
                     }
                     break;
             }
-        }
-
-        private void 撤销ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void 选色ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolStripComboBox1_Click(object sender, EventArgs e)
-        {
         }
 
         private void Panel1_MouseDoubleClick(object sender, MouseEventArgs e)

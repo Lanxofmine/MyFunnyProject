@@ -48,9 +48,9 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -252,6 +252,15 @@
             this.panel1.Size = new System.Drawing.Size(246, 211);
             this.panel1.TabIndex = 19;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(58, 156);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(46, 44);
+            this.button14.TabIndex = 17;
+            this.button14.Text = ".";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(35, 323);
@@ -271,15 +280,6 @@
             this.textBox2.Size = new System.Drawing.Size(246, 34);
             this.textBox2.TabIndex = 21;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(58, 156);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(46, 44);
-            this.button14.TabIndex = 17;
-            this.button14.Text = ".";
-            this.button14.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
