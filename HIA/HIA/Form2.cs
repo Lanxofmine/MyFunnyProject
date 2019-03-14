@@ -21,11 +21,13 @@ namespace HIA
         private void Lick(object sendr,EventArgs e)
         {
             Button button = (Button)sendr;
-            if(button.Text.Equals("是"))
-            MessageBox.Show("我就知道你会点是的！");
-            else
+            if (button.Text.Equals("是"))
+                MessageBox.Show("我就知道你会点是的！");
+            else {
                 MessageBox.Show("有点东西呀");
-            this.Hide();
+                this.FormClosed -= new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+                this.Close();
+            }
         }
 
         private void Button2_MouseEnter(object sender, EventArgs e)
