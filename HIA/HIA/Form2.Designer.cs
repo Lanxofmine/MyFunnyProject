@@ -41,7 +41,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "请问你是煞笔吗？";
+            this.label1.Text = "请问你是不是蠢？";
             // 
             // button1
             // 
@@ -74,6 +74,7 @@
             this.Name = "Form2";
             this.Text = "诶嘿嘿";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

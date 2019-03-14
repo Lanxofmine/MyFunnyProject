@@ -20,9 +20,14 @@ namespace HIA
         }
         private void Lick(object sendr,EventArgs e)
         {
+            Button button = (Button)sendr;
+            if(button.Text.Equals("是"))
             MessageBox.Show("我就知道你会点是的！");
+            else
+                MessageBox.Show("有点东西呀");
+            this.Hide();
         }
-        
+
         private void Button2_MouseEnter(object sender, EventArgs e)
         {
             if (button2.Text.Equals("不是"))
@@ -81,8 +86,12 @@ namespace HIA
         }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("关了窗体也不能否认你是煞笔的事实！");
+            MessageBox.Show("关了窗体也不能否认你蠢的事实！");
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
