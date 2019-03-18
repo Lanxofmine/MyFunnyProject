@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
         }
         #region
         private Point downPoint;
-        private bool catchfinished = false;
+        private bool catchFinished = false;
         private bool catchStart = false;
         private Bitmap originBitmap;
         private Rectangle catchRectangle;
@@ -29,16 +29,16 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         Bitmap CatchBmap = new Bitmap(
+         Bitmap catchBmap = new Bitmap(
             Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
-         Graphics g = Graphics.FromImage(CatchBmap);
+         Graphics g = Graphics.FromImage(catchBmap);
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
             g.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(
                 Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height));
             this.FormBorderStyle = FormBorderStyle.None;
             this.Cursor = Cursors.Cross;
-            this.BackgroundImage = CatchBmap;
+            this.BackgroundImage = catchBmap;
             originBitmap = new Bitmap(this.BackgroundImage);
             this.WindowState = FormWindowState.Maximized;
             g.Dispose();
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (!catchStart)
+                if (!catchStart&&catchRectangle.IsEmpty)
                 {
                     catchStart = true;
                     downPoint = new Point(e.X, e.Y);
@@ -67,13 +67,14 @@ namespace WindowsFormsApp1
 
         private void Form_DoubleClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left && catchfinished)
+            if (e.Button == MouseButtons.Left && catchFinished)
             {
                 Bitmap bitmap = new Bitmap(catchRectangle.Width, catchRectangle.Height);
                 Graphics g = Graphics.FromImage(bitmap);
                 g.DrawImage(originBitmap, new Rectangle(downPoint.X, downPoint.Y, catchRectangle.Width, catchRectangle.Height));
+                bitmap=(Bitmap)originBitmap.Clone(new Rectangle(downPoint.X, downPoint.Y, catchRectangle.Width, catchRectangle.Height),originBitmap.PixelFormat);
                 Clipboard.SetImage(bitmap);
-                catchfinished = false;
+                catchFinished = false;
                 this.BackgroundImage = originBitmap;
                 bitmap.Dispose();
                 g.Dispose();
@@ -88,7 +89,7 @@ namespace WindowsFormsApp1
                 Bitmap bitmap = (Bitmap)originBitmap.Clone();
                 Point newPoint = new Point(downPoint.X, downPoint.Y);
                 Graphics graphics = Graphics.FromImage(bitmap);
-                Pen pen = new Pen(Color.Red, 1);
+                Pen pen = new Pen(Color.White, 2);
                 int width = Math.Abs(e.X - newPoint.X);
                 int height = Math.Abs(e.Y - newPoint.Y);
                 newPoint.X = e.X< newPoint.X?e.X:newPoint.X;
@@ -108,7 +109,7 @@ namespace WindowsFormsApp1
         {
             if (catchStart) {
                 catchStart = false;
-                catchfinished = true;
+                catchFinished = true;
             }
         }
     }
